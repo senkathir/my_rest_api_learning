@@ -26,7 +26,10 @@ SECRET_KEY = '04&x2s&9w$63jqz=p8zhq!c#f5zrfgb*bo5pico_idd30_-yqn'
 DEBUG = bool(int(os.environ.get('DEBUG',1)))#checks the value of DEBUG in environment var#mentioned in supervisor conf
 #if DEBUG not mentioned in environ, it wil take val of 1 as given above. when we run with vagrant, deploy folder will not come into picture and so, DEBUG is set
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'ec2-13-233-231-197.ap-south-1.compute.amazonaws.com',
+    '127.0.0.1'
+]
 
 
 # Application definition
@@ -125,4 +128,4 @@ STATIC_URL = '/static/'
 
 AUTH_USER_MODEL = 'profiles_api.UserProfile'#use this model for user auth..i.e. overriding default user auth
 
-STATIC_ROOT = 'static/'
+STATIC_ROOT = 'static/'#for collectstatic cmd, this is the path of static files
